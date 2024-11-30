@@ -49,6 +49,9 @@
             color: #ffe1e1;
             margin-top: 20px;
         }
+        #qrcode {
+            margin: 20px auto;
+        }
         footer {
             margin-top: 30px;
             font-size: 0.9em;
@@ -70,19 +73,42 @@
 <body>
     <div class="container">
         <h1>Para Você, Meu Amor ❤️</h1>
-        <img src="https://via.placeholder.com/250" alt="Foto de nós dois">
-        <p id="text">
-            Aqui vai o texto especial que você escreveu para ela! 💕
-        </p>
+        <div id="qrcode"></div>
+        <img src="HalicEJohn.jpeg" alt="Foto de nós dois">
+
+        <!-- Coloque o contador antes do texto -->
         <div id="counter">
             Carregando tempo do nosso amor...
         </div>
+
+        <p id="text">
+            Desde o momento em que nossos caminhos se cruzaram, minha vida ganhou um novo significado. Em poucos meses, vamos dar um dos passos mais lindos da nossa história: o nosso casamento. E logo em seguida, celebraremos três anos do dia em que decidimos caminhar juntos, sonhar juntos e construir algo tão único e especial.
+
+Cada dia ao seu lado é um presente, uma prova de que o amor verdadeiro existe. Que nossa união continue sendo guiada pela cumplicidade, pela alegria e por tudo de mais puro que compartilhamos.
+
+Mal posso esperar para viver o "sim" ao seu lado e para construir nosso futuro. Amo você mais do que palavras podem expressar! ❤️
+
+Com todo o amor do mundo,  
+Jhonatas 💕
+        </p>
+
         <footer>
             Feito com muito amor por você. 🌹
         </footer>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
     <script>
+        // Gerar QR Code para a página
+        const url = window.location.href;
+        QRCode.toCanvas(document.getElementById('qrcode'), url, {
+            width: 150,
+            color: {
+                dark: '#000000',
+                light: '#ffffff'
+            }
+        });
+
         // Data de início do relacionamento
         const startDate = new Date('2022-04-17T19:00:00');
         
