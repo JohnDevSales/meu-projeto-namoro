@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Nós Dois 💖</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            color: #fff;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            width: 100%;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            font-size: 2em;
+            margin-bottom: 1em;
+        }
+        img {
+            width: 100%;
+            max-width: 250px;
+            height: auto;
+            border-radius: 50%;
+            border: 4px solid #fff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.2em;
+            margin: 20px 0;
+            line-height: 1.5;
+        }
+        #counter {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #ffe1e1;
+            margin-top: 20px;
+        }
+        footer {
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #f8d7da;
+        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.8em;
+            }
+            p {
+                font-size: 1em;
+            }
+            #counter {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Para Você, Meu Amor ❤️</h1>
+        <img src="https://via.placeholder.com/250" alt="Foto de nós dois">
+        <p id="text">
+            Aqui vai o texto especial que você escreveu para ela! 💕
+        </p>
+        <div id="counter">
+            Carregando tempo do nosso amor...
+        </div>
+        <footer>
+            Feito com muito amor por você. 🌹
+        </footer>
+    </div>
+
+    <script>
+        // Data de início do relacionamento
+        const startDate = new Date('2022-04-17T19:00:00');
+        
+        function updateTime() {
+            const now = new Date();
+            const elapsed = now - startDate;
+            
+            const years = Math.floor(elapsed / (1000 * 60 * 60 * 24 * 365));
+            const days = Math.floor((elapsed % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((elapsed % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((elapsed % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((elapsed % (1000 * 60)) / 1000);
+
+            document.getElementById('counter').innerHTML = 
+                `${years} anos, ${days} dias, ${hours} horas, ${minutes} minutos, ${seconds} segundos`;
+        }
+
+        setInterval(updateTime, 1000);
+        updateTime();
+    </script>
+</body>
+</html>
