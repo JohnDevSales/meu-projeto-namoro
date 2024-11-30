@@ -16,6 +16,7 @@
             align-items: center;
             min-height: 100vh;
             padding: 20px;
+            position: relative;
         }
         .container {
             max-width: 600px;
@@ -98,6 +99,7 @@ Jhonatas 💕
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <script>
         // Gerar QR Code para a página
         const url = window.location.href;
@@ -111,7 +113,8 @@ Jhonatas 💕
 
         // Data de início do relacionamento
         const startDate = new Date('2022-04-17T19:00:00');
-        
+        let lastMinute = null;
+
         function updateTime() {
             const now = new Date();
             const elapsed = now - startDate;
@@ -122,10 +125,28 @@ Jhonatas 💕
             const minutes = Math.floor((elapsed % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((elapsed % (1000 * 60)) / 1000);
 
+            // Atualiza o contador
             document.getElementById('counter').innerHTML = 
                 `${years} anos, ${days} dias, ${hours} horas, ${minutes} minutos, ${seconds} segundos`;
+
+            // Checa se o minuto mudou
+            if (minutes !== lastMinute) {
+                lastMinute = minutes;
+                // Dispara a animação de confete
+                shootConfetti();
+            }
         }
 
+        // Função para estourar confetes
+        function shootConfetti() {
+            confetti({
+                particleCount: 100,
+                spread: 160,
+                origin: { x: 0.5, y: 0.5 }
+            });
+        }
+
+        // Atualiza o contador a cada segundo
         setInterval(updateTime, 1000);
         updateTime();
     </script>
